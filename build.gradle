@@ -1,0 +1,39 @@
+buildscript {
+
+    repositories {
+        gradlePluginPortal()
+        google()
+        jcenter()
+        mavenCentral()
+    }
+    ext {
+        kotlinVersion = "1.4.32"
+        ktorVersion = "1.5.3"
+        coroutinesVersion = "1.4.3-native-mt"
+        sqlDelightVersion = "1.4.4"
+        serializationVersion = "1.1.0"
+        koinVersion= "3.0.1-beta-2"
+        compose_version = '1.0.0-beta04'
+
+
+    }
+    dependencies {
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        classpath('com.android.tools.build:gradle:7.0.0-alpha14')
+        classpath("org.jetbrains.kotlin:kotlin-serialization:$kotlinVersion")
+    }
+
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+        mavenCentral()
+    }
+}
+
+tasks.register("clean").configure {
+    delete("build")
+}
